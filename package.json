@@ -1,0 +1,17 @@
+{
+  "name": "accords-library-scripts",
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=18.13.0"
+  },
+  "description": "",
+  "license": "MIT",
+  "scripts": {
+    "import:weapon-stories": "node ./nier-reincarnation/weapon-stories/index.mjs"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "envsafe": "^2.0.3"
+  }
+}
