@@ -15,8 +15,6 @@ try {
   process.exit(1);
 }
 
-weapons = weapons.slice(0, 1);
-
 console.log(`${weapons.length} weapons fetched from "${NIERREIN_GUIDE_API_URL}/weapons"`)
 
 if (weapons.length === 0) {
