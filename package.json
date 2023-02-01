@@ -2,6 +2,9 @@
   "name": "accords-library-scripts",
   "version": "0.1.0",
   "type": "module",
+  "engines": {
+    "node": ">=18.13.0"
+  },
   "description": "",
   "license": "MIT",
   "scripts": {
