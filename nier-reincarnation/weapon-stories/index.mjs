@@ -6,6 +6,18 @@ let currentIndex = 1;
 
 let weapons = [];
 
+const slugSpecialCases = new Map([
+  ["phoenix-lance", "phoenix-spear"],
+  ["iron-will", "hymir-finger"],
+  ["the-devil-queen", "widow-death"],
+  ["kains-sword", "kaines-sword"],
+  ["spear-of-the-usurper", "robber-king"],
+  ["ancient-overlord", "kingsblood"],
+  ["fang-of-the-twins", "twins-fang"],
+  ["dragoon-lance", "knight-vow"],
+  ["faith", "nobuyoshi"],
+]);
+
 try {
   console.log('Fetching NieR Re[in]carnation weapons...')
   weapons = await fetch(`${NIERREIN_GUIDE_API_URL}/weapons`)
@@ -29,6 +41,11 @@ for (const weapon of weapons) {
   const file = await fetch(`${NIERREIN_GUIDE_CDN_URL}${weapon.image_path}full.png`).then(
     (response) => response.blob()
   );
+
+  // Change slug if the weapon is known with a different name in accords-library
+  if (slugSpecialCases.has(weapon.slug)) {
+    weapon.slug = slugSpecialCases.get(weapon.slug);
+  }
 
   const body = new FormData();
 

@@ -16,3 +16,9 @@ Usage:
 ```sh
 npm run import:weapon-stories
 ```
+
+Related checks:
+
+```sh
+npm run check:weapon-stories-duplicates
+```

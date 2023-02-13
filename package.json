@@ -8,6 +8,7 @@
   "description": "",
   "license": "MIT",
   "scripts": {
+    "check:weapon-stories-duplicates": "node ./nier-reincarnation/weapon-stories/find-duplicates.mjs",
     "import:weapon-stories": "node ./nier-reincarnation/weapon-stories/index.mjs"
   },
   "dependencies": {
