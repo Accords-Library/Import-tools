@@ -1,0 +1,48 @@
+name: Auto import
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"
+
+env:
+  STRAPI_BASE_API_URL: ${{ secrets.STRAPI_BASE_API_URL }}
+  STRAPI_GRAPHQL: ${{ secrets.STRAPI_GRAPHQL }}
+  STRAPI_API_TOKEN: ${{ secrets.STRAPI_API_TOKEN }}
+
+jobs:
+  costumes:
+  
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run import:emblems
+    - run: npm run import:costumes
+    
+  weapons:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run import:weapon-stories
