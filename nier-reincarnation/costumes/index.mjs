@@ -20,6 +20,11 @@ const { data: emblems } = await fetch(
     process.exit(1);
   });
 
+if (!emblems || emblems.length === 0) {
+  console.error(`Got 0 emblems from "${env.STRAPI_BASE_API_URL}/rein-emblems". You may want to run "npm run import:emblems".`)
+  process.exit(1);
+}
+
 let costumes = [];
 
 try {
