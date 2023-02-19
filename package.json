@@ -8,11 +8,15 @@
   "description": "",
   "license": "MIT",
   "scripts": {
+    "import:all": "npm run import:emblems && npm run import:costumes && npm run import:weapon-stories",
     "check:weapon-stories-duplicates": "node ./nier-reincarnation/weapon-stories/find-duplicates.mjs",
-    "import:weapon-stories": "node ./nier-reincarnation/weapon-stories/index.mjs"
+    "import:weapon-stories": "node ./nier-reincarnation/weapon-stories/index.mjs",
+    "import:emblems": "node ./nier-reincarnation/emblems/index.mjs",
+    "import:costumes": "node ./nier-reincarnation/costumes/index.mjs"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
-    "envsafe": "^2.0.3"
+    "envsafe": "^2.0.3",
+    "slugg": "^1.2.1"
   }
 }
