@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "0 0 * * 0"
 
+env:
+  STRAPI_BASE_API_URL: ${{ secrets.STRAPI_BASE_API_URL }}
+  STRAPI_GRAPHQL: ${{ secrets.STRAPI_GRAPHQL }}
+  STRAPI_API_TOKEN: ${{ secrets.STRAPI_API_TOKEN }}
+
 jobs:
   costumes:
   
